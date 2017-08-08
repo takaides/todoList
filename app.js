@@ -16,14 +16,14 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.render('index', {
     todo: todo,
     done: done
   })
 });
 
-app.post("/", function(req, res) {
+app.post("/", (req, res) => {
   // console.log('request: ', req.body);
   todo.push(req.body.todoItem);
   // console.log('todo: ', todo);
@@ -31,10 +31,10 @@ app.post("/", function(req, res) {
   res.redirect('/');
 })
 
-app.post('/done', function(req, res) {
+app.post('/done', (req, res) => {
   // console.log('request: ', req.body);
   // console.log('req done: ', req.body.done);
-  todo.forEach(function(item, i) {
+  todo.forEach((item, i) => {
     // console.log('item: ', item);
     // console.log('todo: ', todo);
     // console.log('done: ', done);
